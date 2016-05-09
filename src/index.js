@@ -5,16 +5,18 @@ import App from './containers/App'
 import Admin from './components/Admin'
 import Genre from './components/Genre'
 import Home from './components/Home'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import NotFound from './components/NotFound'
 
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 render(
   <Router history={browserHistory}>
-    <Route path='/' component='{App}'>
+    <Route path='/' component={App}>
       <IndexRoute component={Home} />
       <Route path='admin' component={Admin} />
       <Route path='genre' component={Genre} />
     </Route>
-  <Router />,
+    <Route path='*' component={NotFound} />
+  </Router>,
   document.getElementById('root')
 )
